@@ -28,8 +28,7 @@ module.exports = merge(base, {
                 {
                     loader: 'css-loader',
                     options: {
-                        modules: true,
-                        localIdentName: '[local]'
+                        modules: true
                     }
                 },
                 {
@@ -48,8 +47,7 @@ module.exports = merge(base, {
                 {
                     loader: 'css-loader',
                     options: {
-                        modules: true,
-                        localIdentName: '[local]'
+                        modules: true
                     }
                 },
                 {
@@ -69,8 +67,7 @@ module.exports = merge(base, {
                 {
                     loader: 'css-loader',
                     options: {
-                        modules: true,
-                        localIdentName: '[local]'
+                        modules: true
                     }
                 },
                 {

@@ -1,1 +1,1 @@
-### 20190812  初始化react-cli
+### 20190812  初始化react-cli(配置react + react-router + react-redux)

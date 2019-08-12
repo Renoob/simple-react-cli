@@ -38,7 +38,7 @@ module.exports = {
             test: /\.(jsx|js)$/,
             include: path.resolve(__dirname, '../src'),
             exclude: [/node_modules/],
-            loader: ['babel-loader']
+            loader: ['babel-loader', 'eslint-loader']
         }, {
             test: /\.(png|jpg|jpeg|gif|svg)$/,
             use: [{
