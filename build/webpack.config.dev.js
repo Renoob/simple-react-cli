@@ -14,7 +14,7 @@ module.exports = merge(base, {
         rules: [{
             test: /\.css$/,
             use: [
-                'styles-loader',
+                'style-loader',
                 {
                     loader: 'css-loader',
                     options: {
@@ -34,7 +34,7 @@ module.exports = merge(base, {
         }, {
             test: /\.scss$/,
             use: [
-                'styles-loader',
+                'style-loader',
                 {
                     loader: 'css-loader',
                     options: {
@@ -52,13 +52,34 @@ module.exports = merge(base, {
                 },
                 'sass-loader'
             ]
+        }, {
+            test: /\.less$/,
+            use: [
+                'style-loader',
+                {
+                    loader: 'css-loader',
+                    options: {
+                        modules: true,
+                        localIdentName: '[local]'
+                    }
+                },
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        config: {
+                            path: path.resolve(__dirname, './postcss.config.js')
+                        }
+                    }
+                },
+                'less-loader'
+            ]
         }]
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
-			"process.env": {
-				NODE_ENV: JSON.stringify("development")
+			'process.env': {
+				NODE_ENV: JSON.stringify('development')
 			}
 		})
     ],

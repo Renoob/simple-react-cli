@@ -62,6 +62,27 @@ module.exports = merge(base, {
                 },
                 'sass-loader'
             ]
+        }, {
+            test: /\.less$/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                {
+                    loader: 'css-loader',
+                    options: {
+                        modules: true,
+                        localIdentName: '[local]'
+                    }
+                },
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        config: {
+                            path: path.resolve(__dirname, './postcss.config.js')
+                        }
+                    }
+                },
+                'less-loader'
+            ]
         }]
     },
     plugins: [
