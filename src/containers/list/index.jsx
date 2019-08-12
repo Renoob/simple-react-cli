@@ -1,9 +1,10 @@
 import React from 'react';
+import './index.less';
 
 class List extends React.Component {
     render(){
         const module = (
-            <div>
+            <div className = 'list'>
                 列表
             </div>
         )

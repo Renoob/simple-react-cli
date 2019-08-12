@@ -15,12 +15,7 @@ module.exports = merge(base, {
             test: /\.css$/,
             use: [
                 'style-loader',
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true
-                    }
-                },
+                'css-loader',
                 {
                     loader: 'postcss-loader',
                     options: {
@@ -34,12 +29,7 @@ module.exports = merge(base, {
             test: /\.scss$/,
             use: [
                 'style-loader',
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true
-                    }
-                },
+                'css-loader',
                 {
                     loader: 'postcss-loader',
                     options: {
@@ -54,12 +44,7 @@ module.exports = merge(base, {
             test: /\.less$/,
             use: [
                 'style-loader',
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true
-                    }
-                },
+                'css-loader',
                 {
                     loader: 'postcss-loader',
                     options: {

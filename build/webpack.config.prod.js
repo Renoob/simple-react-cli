@@ -1,8 +1,8 @@
 const path = require('path');
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 const base = require('./webpack.config.base');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = merge(base, {
     mode: 'production',
@@ -18,19 +18,22 @@ module.exports = merge(base, {
                 }
             }
         },
-        usedExports: true
+        usedExports: true,
+        minimizer: [
+            new OptimizeCSSAssetsPlugin({})
+        ]
     },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'styles/[name].[chunkhash:5].css'
+        })
+    ],
     module: {
         rules: [{
             test: /\.css$/,
             use: [
                 MiniCssExtractPlugin.loader,
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true
-                    }
-                },
+                'css-loader',
                 {
                     loader: 'postcss-loader',
                     options: {
@@ -44,12 +47,7 @@ module.exports = merge(base, {
             test: /\.scss$/,
             use: [
                 MiniCssExtractPlugin.loader,
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true
-                    }
-                },
+                'css-loader',
                 {
                     loader: 'postcss-loader',
                     options: {
@@ -64,12 +62,7 @@ module.exports = merge(base, {
             test: /\.less$/,
             use: [
                 MiniCssExtractPlugin.loader,
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true
-                    }
-                },
+                'css-loader',
                 {
                     loader: 'postcss-loader',
                     options: {
@@ -81,10 +74,5 @@ module.exports = merge(base, {
                 'less-loader'
             ]
         }]
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: 'styles/[name].[chunkhash:5].css'
-        })
-    ]
+    }
 })

@@ -1,8 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const PurifyCSS = require('purifycss-webpack')
-const glob = require('glob-all')
+// const PurifyCSS = require('purifycss-webpack')
+// const glob = require('glob-all')
 
 module.exports = {
     entry: {
@@ -15,8 +15,7 @@ module.exports = {
     resolve: {
         modules: [
             path.resolve(__dirname, '../src'),
-			path.resolve(__dirname, '../node_modules'),
-			"node_modules"
+			'node_modules'
         ],
         alias: {
             src: path.resolve(__dirname, '../src'),
@@ -69,13 +68,13 @@ module.exports = {
         new webpack.ProvidePlugin({
             _: 'lodash'
         }),
-        // 清除无用 css
-        new PurifyCSS({
-            paths: glob.sync([
-                // 要做 CSS Tree Shaking 的路径文件
-                path.resolve(__dirname, '../views/*.html'),
-                path.resolve(__dirname, '../src/*.js')
-            ])
-        })
+        // // 清除无用 css
+        // new PurifyCSS({
+        //     paths: glob.sync([
+        //         // 要做 CSS Tree Shaking 的路径文件
+        //         path.resolve(__dirname, '../views/*.html'),
+        //         path.resolve(__dirname, '../src/*.js')
+        //     ])
+        // })
     ]
 }
