@@ -1,7 +1,8 @@
-export const time = 'time';
+export const TIME = 'TIME';
 
-function action(type, info = {}){
-	return { type, ...info };
+export function getTime(info){
+	return {
+		type: TIME,
+		...info
+	}
 }
-
-export const setTime = (info) => action(time, info);

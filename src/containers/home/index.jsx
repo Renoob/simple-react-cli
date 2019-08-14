@@ -2,24 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './index.less';
-import { setTime } from 'STORE/time/actions';
+import { fetchTime } from 'STORE/time/middleware';
 
 class Home extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            count: new Date().getTime()
-        }
     }
 
     componentDidMount(){
-        this.timeout = setInterval(() => {
-            this.props.setTime({ now: new Date().getTime() });
-        }, 1000);
-    }
-
-    componentWillUnmount(){
-        clearInterval(this.timeout);
+        this.props.fetchTime();
     }
 
     render(){
@@ -37,7 +28,7 @@ class Home extends React.Component {
 
 Home.propTypes = {
     now: PropTypes.number,
-    setTime: PropTypes.func
+    fetchTime: PropTypes.func
 }
 
 function mapStateToProps({ time }){
@@ -46,7 +37,13 @@ function mapStateToProps({ time }){
     }
 }
 
+function mapDispatchToProps (dispatch) {
+    return {
+        fetchTime: () => dispatch(fetchTime())
+    }
+}
+
 export default connect(
     mapStateToProps,
-    { setTime }
+    mapDispatchToProps
 )(Home)

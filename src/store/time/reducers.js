@@ -1,4 +1,4 @@
-import * as Actions from "./actions";
+import { TIME } from './actions';
 
 const INITIAL_STATE = {
 	now: new Date().getTime(),
@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 const time = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case Actions.time:
+        case TIME:
             return {
                 ...state,
                 now: action.now
