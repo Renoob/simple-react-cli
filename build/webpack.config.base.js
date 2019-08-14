@@ -28,7 +28,7 @@ module.exports = {
 			STYLES: 'src/styles',
 			UTILS: 'src/utils'
 		},
-		extensions: [ '.html', '.js', '.jsx', '.css', '.scss', '.less', '.json' ] //自动解析的扩展
+		extensions: [ '.html', '.js', '.jsx', '.css', '.scss', '.sass', '.less', '.json' ] //自动解析的扩展
     },
     module: {
         rules: [{
