@@ -3,6 +3,8 @@ const merge = require('webpack-merge');
 const base = require('./webpack.config.base');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+// const glob = require('glob');
+// const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 module.exports = merge(base, {
     mode: 'production',
@@ -26,7 +28,11 @@ module.exports = merge(base, {
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'styles/[name].[chunkhash:5].css'
-        })
+        }),
+        // 清除无用 css
+        // new PurgecssPlugin({
+        //     paths: glob.sync(path.resolve(__dirname, '../src/**/*'), { nodir: true })
+        // })
     ],
     module: {
         rules: [{
