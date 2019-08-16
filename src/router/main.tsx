@@ -1,14 +1,14 @@
-import React from 'react';
-import { withRouter } from 'react-router';
+import * as React from 'react';
+import { withRouter, RouteComponentProps } from 'react-router';
 import { Route, Switch } from 'react-router-dom';
 import routerConfig from './config';
 import Menu from 'COMPONENTS/menu';
 
-class Main extends React.Component {
+class Main extends React.Component<RouteComponentProps> {
     render(){
         const module = (
             <>
-                <Menu { ...this.props } />
+                <Menu />
                 <Switch>
                     {
                         routerConfig.map(item => (

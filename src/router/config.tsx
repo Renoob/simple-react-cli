@@ -1,5 +1,5 @@
-import React from 'react';
-import Loadable from 'react-loadable';
+import * as React from 'react';
+import * as Loadable from 'react-loadable';
 
 const Loading = () => <div></div>
 const timeout = 1000

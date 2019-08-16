@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from  './index.module.less';
+import * as React from 'react';
+import * as styles from  './index.module.less';
 
 class List extends React.Component {
     render(){

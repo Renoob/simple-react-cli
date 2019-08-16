@@ -1,14 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import './index.less';
 import { fetchTime } from 'STORE/time/middleware';
 
 class Home extends React.Component {
-    constructor(props){
-        super(props);
-    }
-
     componentDidMount(){
         this.props.fetchTime();
     }
@@ -24,11 +19,6 @@ class Home extends React.Component {
 
         return module
     }
-}
-
-Home.propTypes = {
-    now: PropTypes.number,
-    fetchTime: PropTypes.func
 }
 
 function mapStateToProps({ time }){

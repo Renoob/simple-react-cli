@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        bundle: path.resolve(__dirname, '../src/index.js')
+        bundle: path.resolve(__dirname, '../src/index')
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -28,7 +28,7 @@ module.exports = {
 			STYLES: 'src/styles',
 			UTILS: 'src/utils'
 		},
-		extensions: [ '.html', '.js', '.jsx', '.css', '.scss', '.sass', '.less', '.json' ] //自动解析的扩展
+		extensions: [ '.html', '.js', '.jsx', '.ts', '.tsx', '.css', '.scss', '.sass', '.less', '.json' ] //自动解析的扩展
     },
     module: {
         rules: [{
@@ -36,6 +36,13 @@ module.exports = {
             include: path.resolve(__dirname, '../src'),
             exclude: [/node_modules/],
             loader: ['babel-loader', 'eslint-loader']
+        }, {
+            test: /\.(tsx|ts)$/,
+            include: path.resolve(__dirname, '../src'),
+            exclude: [/node_modules/],
+            use: [{
+                loader: 'ts-loader',
+            }]
         }, {
             test: /\.(png|jpg|jpeg|gif|svg)$/,
             use: [{
