@@ -1,9 +1,16 @@
 import * as React from 'react';
+import { AnyAction } from 'redux';
+import { ThunkDispatch  } from 'redux-thunk';
 import { connect } from 'react-redux';
 import './index.less';
 import { fetchTime } from 'STORE/time/middleware';
 
-class Home extends React.Component {
+interface Props {
+    fetchTime: () => void,
+    now: number,
+}
+
+class Home extends React.Component<Props, {}> {
     componentDidMount(){
         this.props.fetchTime();
     }
@@ -21,13 +28,19 @@ class Home extends React.Component {
     }
 }
 
-function mapStateToProps({ time }){
+interface time {
+    time: {
+        now: number
+    }
+}
+
+function mapStateToProps({ time }: time){
     return {
         now: time.now
     }
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps (dispatch: ThunkDispatch<{}, {}, AnyAction>) {
     return {
         fetchTime: () => dispatch(fetchTime())
     }
