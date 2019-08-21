@@ -1,18 +1,18 @@
-import * as React from 'react';
-import { withRouter, RouteComponentProps } from 'react-router';
-import { Route, Switch } from 'react-router-dom';
-import routerConfig from './config';
-import Menu from 'COMPONENTS/menu';
+import Menu from "COMPONENTS/menu";
+import * as React from "react";
+import { RouteComponentProps, withRouter } from "react-router";
+import { Route, Switch } from "react-router-dom";
+import routerConfig from "./config";
 
 class Main extends React.Component<RouteComponentProps> {
-    render(){
+    public render() {
         const module = (
             <>
                 <Menu />
                 <Switch>
                     {
-                        routerConfig.map(item => (
-                            <Route 
+                        routerConfig.map((item) => (
+                            <Route
                                 key = { item.path }
                                 path = { item.path }
                                 component = { item.component }
@@ -22,10 +22,10 @@ class Main extends React.Component<RouteComponentProps> {
                     }
                 </Switch>
             </>
-        )
+        );
 
-        return module
+        return module;
     }
 }
 
-export default withRouter(Main)
+export default withRouter(Main);

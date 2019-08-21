@@ -1,16 +1,18 @@
-import * as React from 'react';
-import * as styles from  './index.module.less';
+import * as React from "react";
+import * as styles from "./index.module.less";
 
 class List extends React.Component {
-    render(){
+    public render() {
+        const list = "list";
+
         const module = (
-            <div className = { styles['list'] }>
+            <div className = { styles[list] }>
                 列表
             </div>
-        )
+        );
 
-        return module
+        return module;
     }
 }
 
-export default List
+export default List;

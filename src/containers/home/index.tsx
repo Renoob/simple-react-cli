@@ -1,52 +1,52 @@
-import * as React from 'react';
-import { AnyAction } from 'redux';
-import { ThunkDispatch  } from 'redux-thunk';
-import { connect } from 'react-redux';
-import './index.less';
-import { fetchTime } from 'STORE/time/middleware';
+import * as React from "react";
+import { connect } from "react-redux";
+import { AnyAction } from "redux";
+import { ThunkDispatch  } from "redux-thunk";
+import { fetchTime } from "STORE/time/middleware";
+import "./index.less";
 
-interface Props {
-    fetchTime: () => void,
-    now: number,
+interface IProps {
+    fetchTime: () => void;
+    now: number;
 }
 
-class Home extends React.Component<Props, {}> {
-    componentDidMount(){
+class Home extends React.Component<IProps, {}> {
+    public componentDidMount() {
         this.props.fetchTime();
     }
 
-    render(){
+    public render() {
         const { now } = this.props;
 
         const module = (
-            <div className = 'home'>
+            <div className = "home">
                 时间：{ now }
             </div>
-        )
+        );
 
-        return module
+        return module;
     }
 }
 
-interface time {
+interface ITime {
     time: {
-        now: number
-    }
+        now: number,
+    };
 }
 
-function mapStateToProps({ time }: time){
+function mapStateToProps({ time }: ITime) {
     return {
-        now: time.now
-    }
+        now: time.now,
+    };
 }
 
-function mapDispatchToProps (dispatch: ThunkDispatch<{}, {}, AnyAction>) {
+function mapDispatchToProps(dispatch: ThunkDispatch<{}, {}, AnyAction>) {
     return {
-        fetchTime: () => dispatch(fetchTime())
-    }
+        fetchTime: () => dispatch(fetchTime()),
+    };
 }
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
-)(Home)
+    mapDispatchToProps,
+)(Home);
