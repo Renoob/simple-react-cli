@@ -1,8 +1,8 @@
-export const TIME = 'TIME';
+export const TIME = "TIME";
 
-export function getTime(info: Object){
-	return {
-		type: TIME,
-		...info
-	}
+export function getTime(info: { now?: number }) {
+    return {
+        type: TIME,
+        ...info,
+    };
 }

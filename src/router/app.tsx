@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { HashRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import * as React from "react";
+import { Provider } from "react-redux";
+import { HashRouter } from "react-router-dom";
 import store from "STORE/configStore";
-import Main from './main';
+import Main from "./main";
 
 const App = () => (
     <Provider store = { store }>
@@ -10,6 +10,6 @@ const App = () => (
             <Main />
         </HashRouter>
     </Provider>
-)
+);
 
-export default App
+export default App;

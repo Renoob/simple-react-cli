@@ -1,10 +1,12 @@
-import { Dispatch } from 'redux';
-import { getTime } from './actions';
+import { Dispatch } from "redux";
+import { getTime } from "./actions";
 
-export function fetchTime(){
-	return (dispatch: Dispatch) => {
-		setInterval(() => {
-			dispatch(getTime({ now: new Date().getTime() }))
+function fetchTime() {
+    return (dispatch: Dispatch) => {
+        setInterval(() => {
+            dispatch(getTime({ now: new Date().getTime() }));
         }, 1000);
-	}
+    };
 }
+
+export { fetchTime };

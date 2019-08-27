@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
-import time from './time/reducers';
+import { combineReducers } from "redux";
+import time from "./time/reducers";
 
 const reducers = combineReducers({
-    time
-})
+    time,
+});
 
-export default reducers
+export default reducers;
