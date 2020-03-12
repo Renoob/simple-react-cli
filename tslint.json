@@ -1,7 +1,0 @@
-{
-    "extends": "tslint:recommended",
-    "rulesDirectory": ["./src"],
-    "linterOptions": {
-        "exclude": ["**/node_modules/**"]
-    }
-}
